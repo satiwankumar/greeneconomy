@@ -1,0 +1,130 @@
+.overview-stat-main {
+  .pie-chart-wrap {
+    padding: 18px;
+    background-color: #fffdd8;
+    border-radius: 10px;
+    width: fit-content;
+    .recharts-default-legend {
+      text-align: unset !important;
+      padding: 0 0 0 10px !important;
+      .recharts-legend-item:nth-of-type(2n + 1) {
+        margin-right: 30px !important;
+      }
+    }
+  }
+  .line-chart-wrap {
+    padding: 18px;
+    background-color: #efefff;
+    border-radius: 10px;
+    width: fit-content;
+    .inner-wrap {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #3e4095;
+      .title-wrap {
+        width: 70%;
+        span {
+          color: #fff;
+          font-size: 20px;
+        }
+        svg {
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+    .line-chart-legend-wrap {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      .line-chart1,
+      .line-chart2,
+      .line-chart3,
+      .line-chart4 {
+        border-right: 2px solid #ddd;
+        h2 {
+          font-size: 37px;
+          color: #ed3237;
+          font-weight: 700;
+          margin: 0;
+        }
+        span {
+          margin-right: 25px;
+          font-size: 16px;
+          font-weight: 500;
+          color: #373435;
+        }
+      }
+      .line-chart4 {
+        border-right: unset;
+      }
+    }
+  }
+  .lagos-map-wrap {
+    margin-top: 15px;
+    background-color: #fef3f3;
+    height: auto;
+    padding: 10px 15px 20px 15px;
+    border-radius: 10px;
+    .lagos-map-title {
+      color: #3f3b3c;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .lagos-map-wrap-image {
+      height: 180px;
+      background-color: #c4d9fc;
+      img {
+        background-color: #c4d9fc;
+      }
+    }
+  }
+  .lagos-green-wrap {
+    width: 80%;
+
+    .lagos-green-title {
+      margin: 15px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #3f3b3c;
+    }
+    .positive {
+      background-color: #efffef;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 16px;
+      .positive-1 {
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+      .positive-2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #3e4095;
+      }
+    }
+    .negative {
+      background-color: #efffef;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 16px;
+      margin-top: 15px;
+      .negative-1 {
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+      .negative-2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #3e4095;
+      }
+    }
+  }
+}

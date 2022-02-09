@@ -1,0 +1,11 @@
+.tracking-dashboard-main {
+  .chart-box {
+    display: flex;
+    justify-content: center;
+    padding: 28px 18px;
+    cursor: grab;
+    .char-wrap {
+      cursor: grab;
+    }
+  }
+}
