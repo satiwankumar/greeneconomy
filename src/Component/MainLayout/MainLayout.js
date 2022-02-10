@@ -142,10 +142,15 @@ function MainLayout(props) {
             >
               Location Inteligence
             </Menu.Item>
-            <Menu.Item key={"Users Managment"} icon={<FaUser />}>
+            <Menu.Item
+            onClick={() => navigate("/users")}
+            key={"Users Managment"} icon={<FaUser />}>
               Users Managment
             </Menu.Item>
-            <Menu.Item key={"Project Managment"} icon={<RiFileSettingsLine />}>
+            <Menu.Item
+            onClick={() => navigate("/project-managment")}
+            
+            key={"Project Managment"} icon={<RiFileSettingsLine />}>
               Project Managment
             </Menu.Item>
             <Menu.Item key={"My Personal Notes"} icon={<GiNotebook />}>
@@ -157,13 +162,21 @@ function MainLayout(props) {
             <Menu.Item key={"Team Collaboration"} icon={<FaUsersCog />}>
               Team Collaboration
             </Menu.Item>
-            <Menu.Item key={"Manage Investors"} icon={<FaUserTie />}>
+            <Menu.Item
+            onClick={() => navigate("/investors")}
+            
+            key={"Manage Investors"} icon={<FaUserTie />}>
               Manage Investors
             </Menu.Item>
-            <Menu.Item key={"Manage Stakeholders"} icon={<FaUsers />}>
+            <Menu.Item
+             onClick={() => navigate("/stake-holders")}
+            key={"Manage Stakeholders"} icon={<FaUsers />}>
               Manage Stakeholders
             </Menu.Item>
-            <Menu.Item key={"Manage Admins"} icon={<RiAdminFill />}>
+            <Menu.Item
+             onClick={() => navigate("/admins")}
+            
+            key={"Manage Admins"} icon={<RiAdminFill />}>
               Manage Admins
             </Menu.Item>
             <Menu.Item key={"General Settings"} icon={<SettingFilled />}>
