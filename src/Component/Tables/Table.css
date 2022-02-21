@@ -47,6 +47,12 @@
     border-spacing: 0 10px !important
   }
 
+
+.heading{
+  margin-top: 13px;
+}
+.ml-2{margin-left: 8px;}
+
   .ant-btn{
     border-radius: 16px;
     background: #5a85cc !important;
@@ -59,3 +65,127 @@
     float: right;
     
   }
+  a.ant-dropdown-trigger.ant-dropdown-link.ant-dropdown-open span {
+    transform: rotate(180deg);
+    padding-top: 4px;
+}
+
+a.ant-dropdown-trigger.ant-dropdown-link span {
+    transform: rotate(0);
+}
+.ant-dropdown-menu {
+  background: #9E9FCB;
+}
+.modal-btns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-btn{
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  transition: ease-in-out .2s;
+  border-radius: 15px;
+}
+.red-btn{
+  background: #EC3237 !important;
+  border: 1px solid #EC3237;
+  color: white;
+  margin-right: 10px;
+}
+.red-btn:hover{background: transparent; color: #EC3237;}
+.white-btn{
+  background: white;
+  border: 1px solid white;
+  color: black;
+}
+.white-btn:hover{
+  background: black;
+  border: 1px solid black;
+  color: white;
+}
+.ant-modal-content{background: #9E9FCB;}
+.modal-heading{font-size: 20px; margin-top: 10px; font-weight: 500;}
+.text-center{text-align: center;}
+.drop-link{display: flex; align-items: center; font-size: 20px; color: #333333;}
+.drop-link span{margin-left: 10px;}
+.drop-link:hover{color: #333333;}
+.ant-modal-content {
+  background: #9E9FCB;
+  min-width: 500px;
+}
+.data-points-inner{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.data-tag{
+  background: #eeeeee;
+  border: 1px solid #999999;
+  border-radius: 50px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.blue-tag{
+  background-color:  #00AFEF
+}
+.ant-menu-sub li.ant-menu-item.ant-menu-item {
+  background: blue !important;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+
+.mr-3{margin-right: 10px;}
+@media screen and (max-width:575px){
+  .modal-btns{
+    display: block;
+  }
+  .ant-modal-content {
+    min-width: 100%;
+  }
+}
+
+.ant-modal{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+.ant-modal-wrap{
+  overflow-y: hidden;
+  
+}
+
+.purple-btn{
+  background: #404695 !important;
+  border: 1px solid #404695 !important;
+  color: white;
+  border-radius: 5px !important;
+  padding: 23px 50px !important;
+  margin-top: 30px;
+}
+.purple-btn:hover{
+  background: transparent !important;
+  color: #404695 !important;
+}
+span.ant-checkbox-inner {
+  border: 0;
+  background: #7FD7F7 !important;
+  width: 23px;
+  height: 23px;
+}
+.ant-checkbox + span {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+
+.drop-link span {
+  margin-left: 1px;
+}

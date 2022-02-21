@@ -36,6 +36,7 @@ import { createDashboard } from "../../Redux/Actions/DashboardActions";
 import "./Dashboard.scss";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
+import { keyframes } from "styled-components";
 
 const { Option } = Select;
 const { confirm } = Modal;
@@ -208,6 +209,25 @@ function Dashboard(props) {
     }
   };
 
+const character = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+"o",
+"p",
+"q","r","s","t","u","v","w","x","y","z"
+]
+
+
   return (
     <div className="dashboard-main">
       {!showCreate ? (
@@ -369,6 +389,7 @@ function Dashboard(props) {
                 return (
                   <Row>
                     <div className="single-grap-axis-data">
+                      <span >1A</span>
                       <span>{graph?.x}</span> <ArrowRightOutlined />{" "}
                       <span>{graph?.y}</span>
                     </div>
@@ -394,8 +415,10 @@ function Dashboard(props) {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          position: 'relative'
                         }}
                       >
+                        <span className="badgeGraph">{`${index+1}${character[index]}`}</span>
                         <img
                           src={getSrcOfImg(graph?.chart)}
                           alt=""

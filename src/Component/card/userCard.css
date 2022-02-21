@@ -1,0 +1,7 @@
+.ant-modal-footer{
+    display: none !important;
+}
+
+#modalInput::placeholder {
+    color: #606062
+}

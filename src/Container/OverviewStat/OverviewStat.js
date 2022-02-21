@@ -106,6 +106,7 @@ const barData = [
   },
 ];
 
+
 const COLORS = ["#008ffb", "#ff4560", "#feb019", "#00e396"];
 
 function OverviewStat(props) {
@@ -113,37 +114,37 @@ function OverviewStat(props) {
   return (
     <div className="overview-stat-main">
       <Row gutter={[0, 10]} justify="space-between">
-        <Col span={7}>
+        <Col span={{lg:7, xs: 24}}>
           <div className="pie-chart-wrap">
-            <PieChart width={280} height={300}>
-              <Pie
-                isAnimationActive={false}
-                data={data}
-                innerRadius={75}
-                outerRadius={100}
-                fill="#8884d8"
-                paddingAngle={1}
-                dataKey="value"
-              >
-                <Label
-                  value="Circular Data Points"
-                  fontSize={"14"}
-                  fontWeight={"bold"}
-                  position="centerTop"
+          <PieChart width={280} height={300}>
+            <Pie
+              isAnimationActive={false}
+              data={data}
+              innerRadius={75}
+              outerRadius={100}
+              fill="#8884d8"
+              paddingAngle={1}
+              dataKey="value"
+            >
+              <Label
+                value="Circular Data Points"
+                fontSize={"14"}
+                fontWeight={"bold"}
+                position="centerTop"
+              />
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
                 />
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
           </div>
         </Col>
-        <Col span={16}>
+        <Col span={{lg:16, xs: 24}}>
           <div className="line-chart-wrap">
             <div className="inner-wrap">
               <div className="title-wrap w-100 d-flex justify-content-between align-center">
