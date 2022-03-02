@@ -10,6 +10,9 @@ import {
   Dropdown,
   Menu,
   Checkbox,
+  Radio,
+  Calendar,
+  message
 } from "antd";
 
 import {
@@ -28,6 +31,10 @@ import Table from "../../Component/Tables/Table";
 import { CaretDownOutlined } from "@ant-design/icons";
 
 export const ViewProjectManagment = (props) => {
+
+  const [role, setRole] = useState("")
+
+
   const headings = [
     { title: "SN", dataIndex: "sn", key: "sn" },
 
@@ -71,6 +78,8 @@ export const ViewProjectManagment = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible1, setIsModalVisible1] = useState(false);
 
+  const [type, setType] = useState("");
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -95,6 +104,16 @@ export const ViewProjectManagment = (props) => {
     setIsModalVisible1(false);
   };
 
+  
+
+  const handleSucess = (type) => {
+    message.success(`Project ${type} Successfully`);
+
+    handleOk1();
+    setIsModalVisible(false)
+    
+  
+  };
   const menu = (
     <Menu>
       <Menu.Item key="0">
@@ -107,18 +126,19 @@ export const ViewProjectManagment = (props) => {
   );
 
   const metaData = [
-        {
-            "title":"Title",text:"Shomolu Cleanup Project"
-        },
-        {
-            "title":"Created/Due",text:"12/17/2022 / 12/25/2022"
-        },
-        {
-            "title":"Indstry",text:"Shomolu Cleanup Project"
-        },
-     
-        
-  ]
+    {
+      title: "Title",
+      text: "Shomolu Cleanup Project",
+    },
+    {
+      title: "Created/Due",
+      text: "12/17/2022 / 12/25/2022",
+    },
+    {
+      title: "Indstry",
+      text: "Shomolu Cleanup Project",
+    },
+  ];
 
   const data1 = [
     { name: "Informational", value: 400 },
@@ -126,7 +146,7 @@ export const ViewProjectManagment = (props) => {
     { name: "Conservation", value: 450 },
     { name: "Financial", value: 570 },
   ];
-  
+
   const COLORS = ["#008ffb", "#ff4560", "#feb019", "#00e396"];
   return (
     <div>
@@ -144,32 +164,32 @@ export const ViewProjectManagment = (props) => {
 
       <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
         <Col span={8}>
-        <PieChart width={280} height={300}>
-              <Pie
-                isAnimationActive={false}
-                data={data1}
-                innerRadius={75}
-                outerRadius={100}
-                fill="#8884d8"
-                paddingAngle={1}
-                dataKey="value"
-              >
-                <Label
-                  value="Circular Data Points"
-                  fontSize={"14"}
-                  fontWeight={"bold"}
-                  position="centerTop"
+          <PieChart width={280} height={300}>
+            <Pie
+              isAnimationActive={false}
+              data={data1}
+              innerRadius={75}
+              outerRadius={100}
+              fill="#8884d8"
+              paddingAngle={1}
+              dataKey="value"
+            >
+              <Label
+                value="Circular Data Points"
+                fontSize={"14"}
+                fontWeight={"bold"}
+                position="centerTop"
+              />
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
                 />
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
         </Col>
         <Col span={16}>
           {metaData?.map((item) => (
@@ -182,7 +202,6 @@ export const ViewProjectManagment = (props) => {
                 <h2>{item?.title}</h2>
                 <p>{item?.text}</p>
               </Col>
-             
             </Row>
           ))}
         </Col>
@@ -190,8 +209,8 @@ export const ViewProjectManagment = (props) => {
 
       <Table
         headings={headings}
-        ADDButton={true} 
-        link={'/project-managment'}
+        ADDButton={true}
+        link={"/project-managment"}
         data={data}
         title={"Manage Projects"}
         menuOptions={menu}
@@ -205,8 +224,22 @@ export const ViewProjectManagment = (props) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
+        <div>
+          <h3 style={{ textAlign: "center" }}>Manage </h3>
+        </div>
         <div className="d-flex justify-content-center">
-          <Checkbox>
+          <Radio.Group onChange={(e) => setType(e.target.value)} value={type}>
+            <Radio value={"assign"}>
+              <span className="check-text">Re-assign</span>
+            </Radio>
+            <Radio value="markcomplete">
+              <span className="check-text">Complete</span>
+            </Radio>
+            <Radio value={"extend"}>
+              <span className="check-text">Extend</span>
+            </Radio>
+          </Radio.Group>
+          {/* <Checkbox>
             <span className="check-text">Re-assign</span>
           </Checkbox>
 
@@ -216,18 +249,34 @@ export const ViewProjectManagment = (props) => {
 
           <Checkbox>
             <span className="check-text">Extend</span>
-          </Checkbox>
+          </Checkbox> */}
         </div>
+        {type == "assign" ? (
+          <>
+            <TextArea
+              // value={value}
+              // onChange={this.onChange}
+              className="site-input mt-3"
+              placeholder="Describe Project"
+              autoSize={{ minRows: 6, maxRows: 8 }}
+              
+            />
 
-        <TextArea
-          // value={value}
-          // onChange={this.onChange}
-          className="site-input mt-3"
-          placeholder="Describe Project"
-          autoSize={{ minRows: 6, maxRows: 8 }}
-        />
+            <button  onClick={()=>handleSucess("Managed")} className="site-btn w-100 red-btn">Submit</button>
+          </>
+        ) : (
+          ""
+        )}
 
-        <button className="site-btn w-100 red-btn">Submit</button>
+        {type == "extend" ? (
+          <>
+            <Calendar fullscreen={false} />
+
+            <button onClick={()=>handleSucess("Managed")} className="site-btn w-100 red-btn">Submit</button>
+          </>
+        ) : (
+          ""
+        )}
       </Modal>
 
       <Modal
@@ -239,63 +288,26 @@ export const ViewProjectManagment = (props) => {
         onCancel={handleCancel1}
       >
         <div>
-          <p style={{ textAlign: "center", fontSize: 20 }}>Assign</p>
+          <p style={{ textAlign: "center", fontSize: 20 ,marginBottom:"-20px"}}>Assign</p>
         </div>
-        <div
-          style={{
-            border: "1px solid #e6e7e8",
-            marginTop: 10,
-            borderRadius: 5,
-            backgroundColor: "#e6e7e8",
-            marginBottom: "10px",
-          }}
-        >
-          <Dropdown overlay={menu} trigger={["click"]}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-                marginTop: "10px",
-              }}
-            >
-              <div>
-                <p
-                  style={{ color: "#606062" }}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Assign To Team Member
-                </p>
-              </div>
-              <div>
-                <p style={{ color: "#606062" }}>
-                  <CaretDownOutlined />
-                </p>
-              </div>
-            </div>
-          </Dropdown>
-        </div>
-        <div>
-          <Input
-            id="modalInput"
-            style={{
-              paddingLeft: "10px",
-              paddingTop: "10px",
-              paddingBottom: "10px",
-              backgroundColor: "#e6e7e8",
-              color: "#606062",
-              borderRadius: "5px",
-            }}
-            placeholder="Invite New Team Member"
-            name="title"
-            onChange={(e) => handleChange(e)}
-            required
-          />
-        </div>
+      <div >  
+          <Select
+            className="site-input dash-input"
+            name="role"
+            onChange={(value) => setRole(value)}
+            value={role}
+            required={true}
+          >
+            <Option value=""> Assign  To Team Members</Option>
+            <Option value="Team member 1<">Team member 1</Option>
+            <Option value="Team member 2">Team member 2</Option>
+          </Select>
+          </div>
+        
 
         <div style={{ marginTop: 10 }}>
           <button
+          onClick={()=>handleSucess("Assigned")}
             style={{
               width: "100%",
               backgroundColor: "#3e4095",
@@ -303,7 +315,7 @@ export const ViewProjectManagment = (props) => {
               border: "0",
               fontWeight: "bold",
             }}
-          >
+          > 
             <p style={{ marginTop: "10px" }}>Submit</p>
           </button>
         </div>

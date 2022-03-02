@@ -4,7 +4,7 @@ import DataSidePanel from "./Component/DataSidePanel/DataSidePanel";
 import MainLayout from "./Component/MainLayout/MainLayout";
 import Dashboard from "./Container/Dashboard/Dashboard";
 import { ColorMap } from "./Container/InterActiveMap/InterActiveMap";
-import Map from "./Container/InterActiveMap/Map.js";
+// import Map from "./Container/InterActiveMap/Map.js";
 
 import OverviewStat from "./Container/OverviewStat/OverviewStat";
 import ProjectManagment from "./Container/ProjectManagment/ProjectManagment";
@@ -58,7 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<OverviewStat />} />
         <Route path="/create-dashboard" element={<Dashboard />} />
-        <Route path="/maps" element={<Map />} />
+        {/* <Route path="/maps" element={<Map />} /> */}
         <Route path="/tracking-dashboard" element={<TrackingDashboard />} />
         <Route path="/users" element={<Users />} />
         <Route path="/project-managment" element={<ProjectManagment />} />

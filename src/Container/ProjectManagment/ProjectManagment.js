@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { Row, Col, Input, Select, Button, Modal, Dropdown, Menu, Checkbox } from 'antd'
+import { Row, Col, Input, Select, Button, Modal, Dropdown, Menu, Checkbox,Radio ,message} from 'antd'
 
 import Table from '../../Component/Tables/Table'
 import { CaretDownOutlined } from '@ant-design/icons'
+import { useNavigate } from "react-router-dom";
+
 
 
 export const ProjectManagement = (props) => {
+  const Navigate =useNavigate()
 
   const headings = [
     { title: "SN", dataIndex: "sn", key: "sn" },
@@ -18,7 +21,7 @@ export const ProjectManagement = (props) => {
     { title: "LGA", dataIndex: "LGA", key: "LGA" }]
   const data = []
 
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= 3; i++) {
     data.push(
       {
         key: i + 1,
@@ -53,6 +56,8 @@ export const ProjectManagement = (props) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible1, setIsModalVisible1] = useState(false);
+  const [isModalVisible2, setIsModalVisible2] = useState(false);
+
 
 
   const showModal = () => {
@@ -85,19 +90,35 @@ export const ProjectManagement = (props) => {
 
     <Menu>
       <Menu.Item key="0">
-        <a onClick={() => showModal()}>Manage Project</a>
+        <a onClick={() => Navigate("/manage-projects")}>Manage Project</a>
       </Menu.Item>
       <Menu.Item key="1">
         <a onClick={() => showModal1()} >Suspend Project</a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a onClick={() => showModal1()} >Delete Project</a>
+        <a onClick={() => setIsModalVisible2(true)} >Delete Project</a>
       </Menu.Item>
 
     </Menu>
 
   )
 
+  const handleSucess = (type) => {
+    message.success(`Project ${type} Successfully`);
+
+    handleOk1();
+    setIsModalVisible2(false)
+    
+  
+  };
+
+  const handleError = () => {
+    // message.error("User Canceled successfully")
+    handleOk1();
+    setIsModalVisible2(false)
+
+    
+  };
 
   return (
     <div>
@@ -107,17 +128,9 @@ export const ProjectManagement = (props) => {
         </div>
       </div>
 
-      <h2 className='mt-4'>
+      <h3 className='mt-4'>
         Create New
-      </h2>
-
-
-
-
-
-
-
-
+      </h3>
 
 
 
@@ -136,8 +149,8 @@ export const ProjectManagement = (props) => {
                 defaultValue={{ value: 'Industry' }}
                 onChange={handleChange}
               >
-                <Option value="jack">Jack (100)</Option>
-                <Option value="lucy">Lucy (101)</Option>
+                <Option value="HealthCare">HealthCare</Option>
+                <Option value="Govenment">Govenment</Option>
               </Select>
             </Col>
 
@@ -151,8 +164,8 @@ export const ProjectManagement = (props) => {
                 defaultValue={{ value: 'LGA' }}
                 onChange={handleChange}
               >
-                <Option value="jack">Jack (100)</Option>
-                <Option value="lucy">Lucy (101)</Option>
+                <Option value="Shomolu">Shomolu</Option>
+                <Option value="lkeja">lkeja</Option>
               </Select>
 
             </Col>
@@ -178,80 +191,60 @@ export const ProjectManagement = (props) => {
         </Col>
 
       </Row>
+      <h3 className='mt-4'>
+        Manage Existing
+      </h3>
 
-
-
-      <Table headings={headings} data={data} title={"Manage Project"} menuOptions={menu} filters={false}  />
-      <Modal wrapClassName='p-mod' width={600} title="" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-
-        <div className='d-flex justify-content-center'>
-
-          <Checkbox>
-            <span className='check-text'>Re-assign</span>
-          </Checkbox>
-
-
-          <Checkbox>
-            <span className='check-text'>Mark Complete</span>
-          </Checkbox>
-
-          <Checkbox>
-            <span className='check-text'>Extend</span>
-          </Checkbox>
-
+      <Table headings={headings} data={data}  menuOptions={menu} filters={false}  />
+     
+      <Modal
+        width={450}
+        title=""
+        visible={isModalVisible1}
+        onOk={handleOk1}
+        onCancel={handleCancel1}
+      >
+        <div className="text-center">
+          <p className="modal-heading">Are You Sure You Want to Suspend?</p>
         </div>
-
-        <TextArea
-          // value={value}
-          // onChange={this.onChange}
-          className='site-input mt-3'
-          placeholder="Describe Project"
-          autoSize={{ minRows: 6, maxRows: 8 }}
-        />
-
-
-
-
-        <button className='site-btn w-100 red-btn'>Submit</button>
-
-      </Modal>
-
-
-
-
-      <Modal wrapClassName='p-mod' width={450} title="" visible={isModalVisible1} onOk={handleOk1} onCancel={handleCancel1}>
-        <div>
-          <p style={{ textAlign: 'center', fontSize: 20 }}>Assign</p>
-        </div>
-        <div style={{ border: '1px solid #e6e7e8', marginTop: 10, borderRadius: 5, backgroundColor: '#e6e7e8', marginBottom: "10px" }}>
-          <Dropdown overlay={menu} trigger={['click']}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '10px', paddingRight: '10px', marginTop: '10px' }}>
-              <div>
-                <p style={{ color: '#606062' }} onClick={e => e.preventDefault()}>
-                  Assign  To Team Member
-                </p>
-              </div>
-              <div>
-                <p style={{ color: '#606062' }}>
-
-                  <CaretDownOutlined />
-                </p>
-              </div>
-            </div>
-
-          </Dropdown>
-        </div>
-        <div>
-          <Input id='modalInput' style={{ paddingLeft: '10px', paddingTop: '10px', paddingBottom: '10px', backgroundColor: '#e6e7e8', color: '#606062', borderRadius: "5px" }} placeholder="Invite New Team Member" name="title" onChange={(e) => handleChange(e)} required />
-        </div>
-
-        <div style={{ marginTop: 10 }}>
-          <button style={{ width: '100%', backgroundColor: '#3e4095', color: 'white', border: "0", fontWeight: 'bold' }}>
-            <p style={{ marginTop: '10px' }}>Submit</p>
+        <div className="modal-btns">
+          <button onClick={() => handleError()} className="site-btn  red-btn">
+            Cancel
+          </button>
+          <button
+            onClick={() => handleSucess("Suspended")}
+            className="site-btn white-btn"
+          >
+            Suspend
           </button>
         </div>
       </Modal>
 
+
+      <Modal
+        width={450}
+        title=""
+        visible={isModalVisible2}
+        onOk={handleOk1}
+        onCancel={handleCancel1}
+      >
+        <div className="text-center">
+          <p className="modal-heading">Are You Sure You Want to Delete?</p>
+        </div>
+        <div className="modal-btns">
+          <button onClick={() => handleError()} className="site-btn  red-btn">
+            Cancel
+          </button>
+          <button
+            onClick={() => handleSucess("Deleted")}
+            className="site-btn white-btn"
+          >
+            Delete
+          </button>
+        </div>
+      </Modal>
+
+  
     </div>
   )
 }

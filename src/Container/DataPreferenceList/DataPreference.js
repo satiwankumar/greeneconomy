@@ -1,33 +1,36 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React,{useState} from "react";
+import { connect } from "react-redux";
 import { Menu, Modal, Button, Dropdown, Input, message, Select } from "antd";
 
-
-
-import Table from '../../Component/Tables/Table'
+import Table from "../../Component/Tables/Table";
 export const DataPreference = (props) => {
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+ 
   const headings = [
     { title: "SN", dataIndex: "sn", key: "sn" },
 
     { title: "Date", dataIndex: "date", key: "date" },
-    { title: "Data Preference Name", dataIndex: "DataPreferenceName", key: "DataPreferenceName" },
+    {
+      title: "Data Preference Name",
+      dataIndex: "DataPreferenceName",
+      key: "DataPreferenceName",
+    },
     { title: "Assigned to", dataIndex: "AssignedTo", key: "AssignedTo" },
-   
-  ]
+  ];
 
-  const data = []
+  const data = [];
 
   for (let i = 0; i <= 5; i++) {
     data.push(
       {
         key: i + 1,
         sn: i + 1,
-        date: '1/17/2022',
-        DataPreferenceName: 'Recyclers Data Preference',
-        AssignedTo:"22 Users",
-        editable: false
-      },
+        date: "1/17/2022",
+        DataPreferenceName: "Recyclers Data Preference",
+        AssignedTo: "22 Users",
+        editable: false,
+      }
       // {
       //     key: i,
       //     sn: i,
@@ -39,43 +42,83 @@ export const DataPreference = (props) => {
       //     role:'Admin',
       //     editable: false
       //   },
-    )
+    );
   }
 
-
-  
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <a>remove</a>
+        <a onClick={()=>showModal()}>remove</a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a >edit</a>
+        <a>edit</a>
       </Menu.Item>
-
-      
     </Menu>
   );
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
-  // <Menu.Item key="0">
-  //       <a href="https://www.antgroup.com">1st menu item</a>
-  //     </Menu.Item>
-  //     <Menu.Item key="1">
-  //       <a href="https://www.aliyun.com">2nd menu item</a>
-  //     </Menu.Item>
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
 
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  
+  const handleSucess = (type) => {
+    message.success(`User ${type} Successfully`);
+
+    handleOk();
+
+  };
+
+  const handleError = () => {
+    // message.error("User Canceled successfully")
+    handleOk();
+
+  };
 
   return (
     <div>
-
-      <Table headings={headings} data={data} title={"Data Preference List"} ADDButton={true} link={'/manage-data-preference'} menuOptions={menu} />
-
+      <Table
+        headings={headings}
+        data={data}
+        title={"Data Preference List"}
+        ADDButton={true}
+        link={"/manage-data-preference"}
+        menuOptions={menu}
+      />
+       <Modal
+        width={450}
+        title=""
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="text-center">
+          <p className="modal-heading">Are You Sure You Want to Remove?</p>
+        </div>
+        <div className="modal-btns">
+          <button onClick={() => handleError()} className="site-btn  red-btn">
+            Cancel
+          </button>
+          <button
+            onClick={() => handleSucess("Removed")}
+            className="site-btn white-btn"
+          >
+            Remove
+          </button>
+        </div>
+      </Modal>
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(DataPreference)
+export default connect(mapStateToProps, mapDispatchToProps)(DataPreference);

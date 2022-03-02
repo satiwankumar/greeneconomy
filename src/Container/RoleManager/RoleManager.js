@@ -48,7 +48,7 @@ const RoleManager = () => {
         key: 1,
         sn: 1,
         date: moment(new Date()).format("ll"),
-        assignedto: "Nnamdi",
+        assignedto: "25",
         rolename: role,
       },
     ]);
@@ -77,7 +77,7 @@ const RoleManager = () => {
             onChange={(e) => setRole(e.target.value)}
             required
           />
-          <h2 className="mt-4">Select Role Access</h2>
+          <h2 className="mt-4 mb-5">Select Role Access</h2>
 
           <Checkbox>{"enable all process"}</Checkbox>
           <Row>

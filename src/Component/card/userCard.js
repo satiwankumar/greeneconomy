@@ -96,6 +96,8 @@ const UserCard = () => {
   );
   return (
     <div style={{ margin: 40, alignContent: "center", alignItems: "center" }}>
+    <h4 style={{marginLeft:"20px",fontSize:"30px" }}>Team</h4>
+
       <Modal
         width={450}
         bodyStyle={{ backgroundColor: "#9fceee" }}
@@ -107,73 +109,59 @@ const UserCard = () => {
         <div>
           <p style={{ textAlign: "center", fontSize: 20 }}>Invite Team</p>
         </div>
-        <form onSubmit={(e)=>handleSubmit(e)}>
-
-        <div>
-          <Input
-            id="modalInput"
-            style={{
-              paddingLeft: "10px",
-              paddingTop: "10px",
-              paddingBottom: "10px",
-              backgroundColor: "#e6e7e8",
-              color: "#606062",
-            }}
-            placeholder="Enter One or More Emails to Invite"
-            name="title"
-            value={title}
-            onChange={(e) => handleChange(e)}
-            required
-          />
-        </div>
-        {/* <div style={{ border: '1px solid #e6e7e8', marginTop: 10, borderRadius:5, backgroundColor:'#e6e7e8' }}> */}
-        {/* <div style={{ border: '1px solid #e6e7e8', marginTop: 10, borderRadius:5, backgroundColor:'#e6e7e8' }}> */}
-        <Select
-          className="site-input dash-input"
-          name="role"
-          onChange={(value) => handleRole(value)}
-          value={role}
-          required={true}
-        >
-          <Option value=""> Assign Role To Invitees</Option>
-          <Option value="Admin">Admin</Option>
-          <Option value="SuperAdmin">SuperAdmin</Option>
-        </Select>
-        {/* <Dropdown overlay={menu} trigger={['click']}>
-                        <div style={{display:'flex', justifyContent:'space-between', paddingLeft:'10px', paddingRight:'10px', marginTop:'10px'}}>
-                            <div>
-                                <p style={{ color: '#606062' }} onClick={e => e.preventDefault()}>
-                                    Assign Role To Invitees
-                                </p>
-                            </div>
-                            <div>
-                                <p style={{color:'#606062'}}>icon</p>
-                            </div>
-                        </div>
-
-                    </Dropdown> */}
-        {/* </div> */}
-        <div style={{ marginTop: 10 }}>
-          <button
-            style={{
-              width: "100%",
-              backgroundColor: "#3e4095",
-              color: "white",
-              fontWeight: "bold",
-            }}
-            type="submit"
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <Input
+              id="modalInput"
+              style={{
+                paddingLeft: "10px",
+                paddingTop: "10px",
+                paddingBottom: "10px",
+                backgroundColor: "#e6e7e8",
+                color: "#606062",
+              }}
+              placeholder="Enter One or More Emails to Invite"
+              name="title"
+              value={title}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+          {/* <div style={{ border: '1px solid #e6e7e8', marginTop: 10, borderRadius:5, backgroundColor:'#e6e7e8' }}> */}
+          {/* <div style={{ border: '1px solid #e6e7e8', marginTop: 10, borderRadius:5, backgroundColor:'#e6e7e8' }}> */}
+          <Select
+            className="site-input dash-input"
+            name="role"
+            onChange={(value) => handleRole(value)}
+            value={role}
+            required={true}
           >
-            <p type="submit" style={{ marginTop: "10px" }}>
-              Submit
-            </p>
-          </button>
-        </div>
+            <Option value=""> Assign Role To Invitees</Option>
+            <Option value="Admin">Admin</Option>
+            <Option value="SuperAdmin">SuperAdmin</Option>
+          </Select>
+
+          <div style={{ marginTop: 10 }}>
+            <button
+              style={{
+                width: "100%",
+                backgroundColor: "#3e4095",
+                color: "white",
+                fontWeight: "bold",
+              }}
+              type="submit"
+            >
+              <p type="submit" style={{ marginTop: "10px" }}>
+                Submit
+              </p>
+            </button>
+          </div>
         </form>
       </Modal>
       <div className="d-flex align-items-center flex-wrap">
-      <div
-            style={{
-              backgroundColor: "#00afef",
+        <div
+          style={{
+            backgroundColor: "#00afef",
               width: "220px",
               display: 'flex',
               flexDirection: 'column',
@@ -183,62 +171,79 @@ const UserCard = () => {
               padding: "10px",
               borderRadius: 25,
               minHeight: "190px",
-              marginBottom:"10px"
+              marginBottom:"10px",
+              marginLeft: '10px',
+              marginTop: '10px'
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              height: "100%",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
             }}
           >
+            <p
+              onClick={() => showModal()}
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "20px",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
+            >
+              INVITE
+            </p>
+          </div>
+        </div>
+
+        {data.map((item) => (
+          <div
+            style={{
+              backgroundColor: "#00afef",
+              width: "220px",
+              padding: "20px",
+              alignContent: "center",
+              textAlign: "center",
+              padding: "10px",
+              borderRadius: 25,
+              minHeight: "185px",
+              marginBottom: "10px",
+              marginLeft: "10px",
+              marginTop: "10px",
+            }}
+          >
+            <div>
+              <img height={100} width={100} src={userAvatar} />
+            </div>
+            <div style={{ marginTop: 10 }}>
+              <p>{item.title}</p>
+            </div>
             <div
               style={{
                 display: "flex",
-                height: "100%",
+                textAlign: "center",
                 justifyContent: "center",
-                alignContent: "center",
-                alignItems: "center",
+                marginTop:"-15px",
               }}
             >
               <p
-                onClick={() => showModal()}
-                style={{ color: "white", fontWeight: "bold" }}
+                onClick={() => Navigate(`/edit-notes/${item.id}`)}
+                style={{ marginRight: 10 }}
               >
-                INVITE
+                Edit
+              </p>
+              <p
+                onClick={() => handleDelete(item.id)}
+                style={{ color: "red" }}
+              >
+                Delete
               </p>
             </div>
           </div>
-    
-        {data.map((item) => (
-         
-         <div
-         style={{
-           backgroundColor: "#00afef",
-           width: "220px",
-
-           alignContent: "center",
-           textAlign: "center",
-           padding: "10px",
-           borderRadius: 25,
-           minHeight: "190px",
-           marginBottom: "10px",
-           marginLeft: '10px'
-         }}
-       >
-         
-              <div>
-                <img height={100} width={100} src={userAvatar} />
-              </div>
-              <div style={{ marginTop: 10 }}>
-                <p>{item.title}</p>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  textAlign: "center",
-                  justifyContent: "center",
-                }}
-              >
-                 <p onClick={()=>Navigate(`/edit-notes/${item.id}`)} style={{ marginRight: 10, fontWeight: "bold" }}>Edit</p>
-                <p onClick={()=>handleDelete(item.id)}  style={{ color: "red", fontWeight: "bold" }}>Delete</p>
-            </div>
-            </div>
-        
         ))}
       </div>
     </div>

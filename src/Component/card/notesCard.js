@@ -1,14 +1,14 @@
-import { React, useState,useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { Card, Col, Row, Modal, Input, Dropdown, Select, Menu } from "antd";
 import NotesAvatar from "../../Assets/Images/Book.png";
 import "./userCard.css";
 import { formatTimeStr } from "antd/lib/statistic/utils";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Notes = () => {
-  const Navigate = useNavigate("")
+  const Navigate = useNavigate("");
   const [title, settitle] = useState("");
   const [data, setData] = useState([
     {
@@ -34,14 +34,13 @@ const Notes = () => {
     {
       id: 6,
       title: "Notes Title Goes Here",
-    }
+    },
   ]);
 
   const { Option } = Select;
   const handleRole = (value) => {
     console.log(value);
   };
-
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -57,34 +56,30 @@ const Notes = () => {
     setIsModalVisible(false);
   };
 
-const handleSubmit = (e)=>{
-    e.preventDefault()
-    settitle("")
-  //   console.log({
-  //     key :11,
-  //     title:title
-  // })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    settitle("");
+    //   console.log({
+    //     key :11,
+    //     title:title
+    // })
 
-  setData([
-    ...data,{
-      id :uuidv4(),
-      title:title
-  }
-  ])
- 
-  setIsModalVisible(false);
+    setData([
+      ...data,
+      {
+        id: uuidv4(),
+        title: title,
+      },
+    ]);
 
+    setIsModalVisible(false);
+  };
 
-}
- 
-const handleDelete = (id)=>{
+  const handleDelete = (id) => {
+    let dataaaa = data.filter((item) => item.id != id);
 
- let dataaaa= data.filter((item)=>item.id!=id)
-
-
-    setData(dataaaa)
-
-} 
+    setData(dataaaa);
+  };
 
   const menu = (
     <Menu>
@@ -100,6 +95,8 @@ const handleDelete = (id)=>{
   );
   return (
     <div style={{ margin: 40, alignContent: "center", alignItems: "center" }}>
+      <h4 style={{ marginLeft: "20px", fontSize: "30px" }}>Personal Notes</h4>
+
       <Modal
         width={450}
         bodyStyle={{ backgroundColor: "#9fceee" }}
@@ -108,7 +105,7 @@ const handleDelete = (id)=>{
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <form onSubmit={(e)=>handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <p style={{ textAlign: "center", fontSize: 20 }}>Add New</p>
           </div>
@@ -145,7 +142,6 @@ const handleDelete = (id)=>{
           <div style={{ marginTop: 10 }}>
             <button
               type="Submit"
-
               style={{
                 width: "100%",
                 backgroundColor: "#3e4095",
@@ -159,74 +155,93 @@ const handleDelete = (id)=>{
         </form>
       </Modal>
       <div className="d-flex align-items-center flex-wrap">
-     
+        <div
+          style={{
+            backgroundColor: "#00afef",
+            width: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignContent: "center",
+            textAlign: "center",
+            padding: "10px",
+            borderRadius: 25,
+            minHeight: "190px",
+            marginBottom: "10px",
+            marginLeft: "10px",
+            marginTop: "10px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              height: "100%",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <p
+              onClick={() => showModal()}
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "20px",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
+            >
+              INVITE
+            </p>
+          </div>
+        </div>
+
+        {data.map((item) => (
           <div
             style={{
               backgroundColor: "#00afef",
               width: "220px",
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
+              padding: "20px",
               alignContent: "center",
               textAlign: "center",
               padding: "10px",
               borderRadius: 25,
-              minHeight: "190px",
-              marginBottom:"10px"
+              minHeight: "185px",
+              marginBottom: "10px",
+              marginLeft: "10px",
+              marginTop: "10px",
             }}
           >
+            <div style={{ marginTop: "10px" }}>
+              <img height={100} width={100} src={NotesAvatar} />
+            </div>
+            <div style={{ marginTop: 20 }}>
+              <p>{item.title}</p>
+            </div>
             <div
               style={{
                 display: "flex",
-                height: "100%",
+                textAlign: "center",
                 justifyContent: "center",
-                alignContent: "center",
-                alignItems: "center",
+                marginTop: "-15px",
               }}
             >
               <p
-                onClick={() => showModal()}
-                style={{ color: "white", fontWeight: "bold" }}
+                className="mb-0"
+                onClick={() => Navigate(`/edit-notes/${item.id}`)}
+                style={{ marginRight: 10 }}
               >
-                INVITE
+                Edit
+              </p>
+              <p
+                className="mb-0"
+                onClick={() => handleDelete(item.id)}
+                style={{ color: "red" }}
+              >
+                Delete
               </p>
             </div>
           </div>
- 
-        {data.map((item) => (
-        
-            <div
-              style={{
-                backgroundColor: "#00afef",
-                width: "220px",
-
-                alignContent: "center",
-                textAlign: "center",
-                padding: "10px",
-                borderRadius: 25,
-                minHeight: "190px",
-                marginBottom: "10px",
-                marginLeft: '10px'
-              }}
-            >
-              <div>
-                <img height={100} width={100} src={NotesAvatar} />
-              </div>
-              <div style={{ marginTop: 10 }}>
-                <p>{item.title}</p>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  textAlign: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <p onClick={()=>Navigate(`/edit-notes/${item.id}`)} style={{ marginRight: 10, fontWeight: "bold" }}>Edit</p>
-                <p onClick={()=>handleDelete(item.id)}  style={{ color: "red", fontWeight: "bold" }}>Delete</p>
-              </div>
-            </div>
-        
         ))}
       </div>
     </div>

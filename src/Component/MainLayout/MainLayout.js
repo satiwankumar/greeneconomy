@@ -134,8 +134,8 @@ function MainLayout(props) {
 
   return (
     <Layout className="main-layout">
-      <Header className="header">
-        <div className="logo" style={{ marginLeft: !collapse ? "15%" : 0 }}>
+      <Header   className="header d-lg-flex d-block justify-content-center">
+        <div className="logo text-lg-left text-center" style={{ marginLeft: !collapse ? "15%" : 0 }}>
           <img src={logoIcon} height={40} alt="" />
         </div>
         <Input prefix={<SearchOutlined />} />
@@ -169,7 +169,7 @@ function MainLayout(props) {
               {" "}
               <div className="profile-image-wrap">
                 <img src={userProfile} alt="" />
-              </div>
+              </div>  
             </a>
           </Dropdown>
         </div>
@@ -178,6 +178,8 @@ function MainLayout(props) {
         <Sider
           onCollapse={(collapsed) => setCollapsed(collapsed)}
           collapsible
+          breakpoint="lg"
+         
           width={200}
           className="site-layout-background"
         >
@@ -264,19 +266,47 @@ function MainLayout(props) {
             >
               Users Managment
             </Menu.Item>
-            <Menu.Item
-              onClick={() => navigate("/manage-projects")}
-              key={"Project Managment"}
-              icon={<RiFileSettingsLine />}
+            <SubMenu
+              
+               key={"Project Managment"}
+               icon={<RiFileSettingsLine />}
+              onTitleClick={() => {
+                if (defaultOpenedKeys?.includes("Project Managment")) {
+                  setDefaultOpenedKeys([]);
+                } else {
+                  setDefaultOpenedKeys(["Project Managment"]);
+                }
+              }}
+              title="Project Managment"
             >
-              Project Managment
-            </Menu.Item>
+               <Menu.Item
+                key="create-projects"
+                onClick={() => navigate("/project-managment")}
+              >
+                Create Project
+              </Menu.Item>
+              <Menu.Item
+                key="manage-projects"
+                onClick={() => navigate("/manage-projects")}
+              >
+                Manage Project
+              </Menu.Item>
+            
+            </SubMenu>
+            
             <Menu.Item
-              onClick={() => navigate("/data-preference")}
+              onClick={() => navigate("/create-and-view-data-point")}
               key={"Project Managment"}
               icon={<DatabaseOutlined />}
             >
-              Create and View Data Point
+             Data Point Managment
+            </Menu.Item>
+            <Menu.Item
+              onClick={() => navigate("/data-preference")}
+              key={"Data Preference"}
+              icon={<DatabaseOutlined />}
+            >
+              Data Preference
             </Menu.Item>
             <Menu.Item
               onClick={() => navigate("/personal-notes")}
@@ -303,7 +333,7 @@ function MainLayout(props) {
               onClick={() => navigate("/investors")}
               key={"Manage Investors"}
               icon={<FaUserTie />}
-            >
+            > 
               Manage Investors
             </Menu.Item>
             <Menu.Item
