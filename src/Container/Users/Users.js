@@ -137,7 +137,9 @@ const location = [
         data={data}
         title={"Manage Users"}
         menuOptions={menu}
-        filters={true}
+        ADDButton={true}
+        link={'/add-user'}
+        // filters={true}
       />
       <Modal
         width={450}

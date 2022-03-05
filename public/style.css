@@ -1,5 +1,4 @@
-
-.site-input{
+.site-input {
   background-color: #eeeeee !important;
   border: 1px solid #999999 !important;
   border-radius: 20px !important;
@@ -7,7 +6,7 @@
   resize: none;
   width: 100%;
 }
-.site-input .ant-select-selector{
+.site-input .ant-select-selector {
   background: transparent !important;
   padding: 0 !important;
   border: 0 !important;
@@ -15,29 +14,27 @@
 .ant-select.site-input {
   padding: 6px 15px !important;
 }
-button.ant-btn{
-
+button.ant-btn {
   color: white;
   font-weight: 500;
   font-size: 19px;
-
 }
-.dash-input{
- border: 0 !important;
- border-radius: 5px !important;
- margin-top: 30px !important;
-}
-.dash-input2{
+.dash-input {
   border: 0 !important;
   border-radius: 5px !important;
- }
-.site-input::placeholder{
+  margin-top: 30px !important;
+}
+.dash-input2 {
+  border: 0 !important;
+  border-radius: 5px !important;
+}
+.site-input::placeholder {
   font-size: 18px;
   color: #a8abd1 !important;
 }
 
-.p-mod .ant-modal-content{
-  background-color:  #00AFEF;
+.p-mod .ant-modal-content {
+  background-color: #00afef;
   border-radius: 10px;
 }
 
@@ -54,21 +51,22 @@ button.ant-btn.site-btn.w-100.red-btn {
   padding: 25px;
 }
 
-.notification ul.ant-dropdown-menu.ant-dropdown-menu-root.ant-dropdown-menu-vertical.ant-dropdown-menu-light {
+.notification
+  ul.ant-dropdown-menu.ant-dropdown-menu-root.ant-dropdown-menu-vertical.ant-dropdown-menu-light {
   max-width: 280px;
 }
 
 .notification .ant-dropdown-menu-item.ant-dropdown-menu-item-only-child {
   white-space: initial !important;
 }
-.overview-stat-main .line-chart-wrap{width: 100% !important;}
-.badgeGraph{
+.overview-stat-main .line-chart-wrap {
+  width: 100% !important;
+}
+.badgeGraph {
   width: 22px;
   height: 22px;
   border-radius: 5px;
   background: #333333;
-
-
 
   display: flex;
   align-items: center;
@@ -79,11 +77,12 @@ button.ant-btn.site-btn.w-100.red-btn {
   right: 5px;
   top: 5px;
 }
-.p-sm{
+.p-sm {
   font-size: 12px;
 }
-.grey-text{color: #666666;}
-
+.grey-text {
+  color: #666666;
+}
 
 .data-points-inner i {
   color: #4da547;
@@ -104,5 +103,85 @@ button.ant-btn.site-btn.w-100.red-btn {
   font-size: 18px;
 }
 
+@media screen and (max-width: 991px) {
+  line-chart-wrap .line-chart-legend-wrap h2 {
+    font-size: 23px !important;
+  }
+  .line-chart-wrap .inner-wrap:nth-child(1) div span {
+    line-height: 1.2 !important;
+  }
+  .overview-stat-main .lagos-green-wrap .positive span,
+  .overview-stat-main .lagos-green-wrap .negative span {
+    font-size: 19px !important;
+  }
+}
 
+@media screen and (max-width: 767px) {
+  .line-chart-wrap .inner-wrap:nth-child(1) div span {
+    line-height: 0.3 !important;
+  }
+  .line-chart-wrap .line-chart-legend-wrap h2 {
+    font-size: 18px !important;
+  }
+  .overview-stat-main .line-chart-wrap .line-chart-legend-wrap div span {
+    font-size: 11px !important;
+    margin-right: 5px !important;
+  }
+  .main-layout .ant-layout-header .data-panel {
+    padding: 9px;
+    font-size: 9px;
+    margin: 4px;
+  }
+  .overview-stat-main .line-chart-wrap .inner-wrap .title-wrap span {
+    font-size: 12px;
+  }
+  .main-layout .ant-layout-header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 17px 6px;
+  }
+}
 
+@media screen and (max-width: 575px) {
+  .overview-stat-main .line-chart-wrap .inner-wrap {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .site-layout-background .ant-col.ant-col-8.ant-col-offset-1 {
+    max-width: 100% !important;
+    flex: 1;
+  }
+  main.ant-layout-content.site-layout-background {
+    padding: 20px 0 !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .overview-stat-main .line-chart-wrap .inner-wrap {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .site-layout-background .ant-col.ant-col-8.ant-col-offset-1 {
+    max-width: 100% !important;
+    flex: 1;
+  }
+  main.ant-layout-content.site-layout-background {
+    padding: 20px 0 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .overview-stat-main .pie-chart-wrap {
+    width: 100%;
+    overflow-y: scroll;
+  }
+}
+  
+
+@media only screen and (max-width: 999) {
+ 
+  .overview-stat-main .line-chart-wrap .inner-wrap {
+    overflow: scroll;
+}
+  
+}

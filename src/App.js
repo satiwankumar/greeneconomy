@@ -18,6 +18,7 @@ import TeamCollaboration from "./Container/TeamCollaboration/TeamCollaboration";
 import RoleManager from "./Container/RoleManager/RoleManager";
 import { DataPreference } from "./Container/DataPreferenceList/DataPreference";
 import AddAdmin from "./Container/Admins/AddAdmin";
+import AddUser from "./Container/Users/AddUser";
 import UpdateAdmin from "./Container/Admins/UpdateAdmin";
 import AddStakeHolder from "./Container/StackHolders/AddStakeHolder";
 import UpdateStakeHolder from "./Container/StackHolders/UpdateStakeHolder";
@@ -61,6 +62,8 @@ function App() {
         {/* <Route path="/maps" element={<Map />} /> */}
         <Route path="/tracking-dashboard" element={<TrackingDashboard />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/add-user" element={<AddUser />} />
+
         <Route path="/project-managment" element={<ProjectManagment />} />
         <Route path="/investors" element={<Investor />} />
         <Route path="/manage-investor" element={<ManageInvestor />} />

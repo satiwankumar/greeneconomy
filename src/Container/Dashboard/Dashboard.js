@@ -36,6 +36,7 @@ import { createDashboard } from "../../Redux/Actions/DashboardActions";
 import "./Dashboard.scss";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
+
 import { keyframes } from "styled-components";
 
 const { Option } = Select;
@@ -45,6 +46,9 @@ function Dashboard(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showCreate, setShowCreate] = useState(true);
+
+  const [combine, setCombineGraph] = useState(false);
+
   const [dataType, setDataType] = useState({
     all: false,
     info: false,
@@ -227,6 +231,10 @@ const character = [
 "q","r","s","t","u","v","w","x","y","z"
 ]
 
+const CombineGraph=()=>{
+  setCombineGraph(true)
+}
+
 
   return (
     <div className="dashboard-main">
@@ -379,6 +387,7 @@ const character = [
                   <div className="add-btn" onClick={() => onAddGraph()}>
                     +
                   </div>
+                  
                 </Row>
               </Col>
             </Row>

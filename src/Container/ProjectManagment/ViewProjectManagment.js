@@ -37,34 +37,27 @@ export const ViewProjectManagment = (props) => {
 
   const headings = [
     { title: "SN", dataIndex: "sn", key: "sn" },
+    { title: "Date Created", dataIndex: "dateCreated", key: "dateCreated" },
+    { title: "Milestone Name", dataIndex: "milestonename", key: "milestonename" },
+    { title: "value", dataIndex: "value", key: "value" },
+    { title: "Assigned To", dataIndex: "AssignedTo", key: "AssignedTo" },
+    { title: "Due Date", dataIndex: "DueDate", key: "DueDate" },
 
-    { title: "Date Created", dataIndex: "date", key: "date" },
-    { title: "Prject Name", dataIndex: "projectName", key: "projectName" },
-    { title: "Industry", dataIndex: "Industry", key: "Industry" },
-    { title: "LGA", dataIndex: "LGA", key: "LGA" },
   ];
   const data = [];
 
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= 5; i++) {
     data.push(
       {
         key: i + 1,
         sn: i + 1,
-        date: "1/7/2022",
-        projectName: "Shomolu Cleanup Project",
-        Industry: "HealthCare",
-        LGA: "Shomolu",
+        dateCreated: "1/17/2022",
+        milestonename: "My MileStone One",
+        value: "15%",
+        AssignedTo: "Shomolu",
         editable: false,
-      },
+        DueDate: "2/17/2022",
 
-      {
-        key: i + 2,
-        sn: i + 2,
-        date: "1/7/2022",
-        projectName: "John",
-        Industry: "Govenment",
-        LGA: "lkeja",
-        editable: false,
       }
     );
   }
@@ -142,12 +135,11 @@ export const ViewProjectManagment = (props) => {
 
   const data1 = [
     { name: "Informational", value: 400 },
-    { name: "Innovation", value: 140 },
-    { name: "Conservation", value: 450 },
-    { name: "Financial", value: 570 },
+    { name: "Innovation", value: 400 },
+
   ];
 
-  const COLORS = ["#008ffb", "#ff4560", "#feb019", "#00e396"];
+  const COLORS = ["#008ffb", "#00e396"];
   return (
     <div>
       <div
@@ -166,7 +158,7 @@ export const ViewProjectManagment = (props) => {
         <Col span={8}>
           <PieChart width={280} height={300}>
             <Pie
-              isAnimationActive={false}
+              isAnimationActive={true}
               data={data1}
               innerRadius={75}
               outerRadius={100}
@@ -175,7 +167,7 @@ export const ViewProjectManagment = (props) => {
               dataKey="value"
             >
               <Label
-                value="Circular Data Points"
+                value="50% Completed"
                 fontSize={"14"}
                 fontWeight={"bold"}
                 position="centerTop"
@@ -209,10 +201,10 @@ export const ViewProjectManagment = (props) => {
 
       <Table
         headings={headings}
-        ADDButton={true}
+        ADDButton={false}
         link={"/project-managment"}
         data={data}
-        title={"Manage Projects"}
+        title={"Milestones"}
         menuOptions={menu}
         filters={false}
       />

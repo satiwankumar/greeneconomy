@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const UserCard = () => {
   const Navigate = useNavigate("");
+  const [update, setUpdate] = useState("");
+
   const [formData, setformData] = useState({
     title: "",
     role: "",
@@ -39,6 +41,7 @@ const UserCard = () => {
   const handleRole = (value) => {
     setformData({ ...formData, role: value });
   };
+
   const { title, role } = formData;
 
   const { Option } = Select;
@@ -82,6 +85,15 @@ const UserCard = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const EditModal = (item) => {
+
+    setUpdate(true);
+    setIsModalVisible(true);
+
+    setformData({ ...formData, title: item.title, role: item.role });
+
+  };
   const menu = (
     <Menu>
       <Menu.Item key="0">
@@ -96,7 +108,7 @@ const UserCard = () => {
   );
   return (
     <div style={{ margin: 40, alignContent: "center", alignItems: "center" }}>
-    <h4 style={{marginLeft:"20px",fontSize:"30px" }}>Team</h4>
+      <h4 style={{ marginLeft: "20px", fontSize: "30px" }}>Team</h4>
 
       <Modal
         width={450}
@@ -162,18 +174,18 @@ const UserCard = () => {
         <div
           style={{
             backgroundColor: "#00afef",
-              width: "220px",
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignContent: "center",
-              textAlign: "center",
-              padding: "10px",
-              borderRadius: 25,
-              minHeight: "190px",
-              marginBottom:"10px",
-              marginLeft: '10px',
-              marginTop: '10px'
+            width: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignContent: "center",
+            textAlign: "center",
+            padding: "10px",
+            borderRadius: 25,
+            minHeight: "190px",
+            marginBottom: "10px",
+            marginLeft: "10px",
+            marginTop: "10px",
           }}
         >
           <div
@@ -227,19 +239,13 @@ const UserCard = () => {
                 display: "flex",
                 textAlign: "center",
                 justifyContent: "center",
-                marginTop:"-15px",
+                marginTop: "-15px",
               }}
             >
-              <p
-                onClick={() => Navigate(`/edit-notes/${item.id}`)}
-                style={{ marginRight: 10 }}
-              >
+              <p onClick={() => EditModal(item)} style={{ marginRight: 10 }}>
                 Edit
               </p>
-              <p
-                onClick={() => handleDelete(item.id)}
-                style={{ color: "red" }}
-              >
+              <p onClick={() => handleDelete(item.id)} style={{ color: "red" }}>
                 Delete
               </p>
             </div>

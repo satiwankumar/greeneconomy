@@ -7,12 +7,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 
 
-const AddAdmin = ({history}) => {
+const AddUser = ({history}) => {
 
     const navigate =useNavigate()
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [role, setRole] = useState("");
-
 
   const { Option } = Select;
 
@@ -47,7 +46,7 @@ const AddAdmin = ({history}) => {
 
   return (
     <>
-      <Banner title={"Add Users"} />
+      <Banner title={"Manage Admin"} />
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <Row gutter={[16, 16]}>
@@ -56,7 +55,7 @@ const AddAdmin = ({history}) => {
               name={"firstname"}
               type="text"
               className="site-input dash-input"
-              placeholder={"firstname"}
+              placeholder={"Firstname"}
               onChange={(e) => handleChange(e)}
               required
             />
@@ -66,7 +65,7 @@ const AddAdmin = ({history}) => {
               name="lastname"
               type="text"
               className="site-input dash-input"
-              placeholder="lastname"
+              placeholder="Lastname"
               onChange={(e) => handleChange(e)}
               required
             />
@@ -88,32 +87,45 @@ const AddAdmin = ({history}) => {
               name="email"
               type="email"
               className="site-input dash-input"
-              placeholder="email"
+              placeholder="Email"
               onChange={(e) => handleChange(e)}
               required
             />
           </Col>
         </Row>
         <Row gutter={[16, 16]}>
-          {/* <Col span={12}>
+          <Col span={12}>
             <Input
-              name={"date"}
-              type="date"
+              name={"password"} 
+              type="password"
               className="site-input dash-input"
-              placeholder={"date"}
+              placeholder={"Password"}
               onChange={(e) => handleChange(e)}
               required
             />
-          </Col> */}
+          </Col>
+          <Col span={12}>
+            <Input
+              name="password"
+              type="password"
+              className="site-input dash-input"
+              placeholder="Confirm Password"
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </Col>
+        </Row>
+        <Row gutter={[16, 16]}>
+          
           <Col span={24}>
             <Select
               className="site-input dash-input"
               name="role"
-              onChange={(e) => handleRole(e)}
               value={role}
+              onChange={(e) => handleRole(e)}
               required
             >
-              <Option value="">Assign a Role</Option>
+              <Option value="">Assign Data Preference</Option>
               <Option value="Admin">Admin</Option>
               <Option value="SuperAdmin">SuperAdmin</Option>
             </Select>
@@ -164,4 +176,4 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddAdmin);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUser);

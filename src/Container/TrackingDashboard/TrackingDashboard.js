@@ -13,8 +13,12 @@ function TrackingDashboard(props) {
     { id: 1, chart: <PieChart /> },
     { id: 2, chart: <BarChart /> },
   ]);
+
+  console.log("items",items)
   return (
     <div className="tracking-dashboard-main">
+
+
       <Grid>
         {items.map((item, index) => (
           <DragItem key={item?.id} id={item?.id} onMoveItem={moveItem}>

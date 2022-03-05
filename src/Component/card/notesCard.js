@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 const Notes = () => {
   const Navigate = useNavigate("");
   const [title, settitle] = useState("");
+  const [update, setUpdate] = useState(false);
+
   const [data, setData] = useState([
     {
       id: 1,
@@ -45,6 +47,13 @@ const Notes = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+
+  const EditModal = (item) => {
+    setUpdate(true)
+    settitle(item)
     setIsModalVisible(true);
   };
 
@@ -107,7 +116,7 @@ const Notes = () => {
       >
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <p style={{ textAlign: "center", fontSize: 20 }}>Add New</p>
+            <p style={{ textAlign: "center", fontSize: 20 }}>{update?"Edit Note":"Add New"}</p>
           </div>
           <div>
             <Input
@@ -191,7 +200,7 @@ const Notes = () => {
                 justifyContent: "center",
               }}
             >
-              INVITE
+              CREATE
             </p>
           </div>
         </div>
@@ -212,7 +221,10 @@ const Notes = () => {
               marginTop: "10px",
             }}
           >
-            <div style={{ marginTop: "10px" }}>
+            <div 
+                onClick={() => Navigate(`/edit-notes/${item.id}`)}
+            
+            style={{ marginTop: "10px" }}>
               <img height={100} width={100} src={NotesAvatar} />
             </div>
             <div style={{ marginTop: 20 }}>
@@ -228,7 +240,7 @@ const Notes = () => {
             >
               <p
                 className="mb-0"
-                onClick={() => Navigate(`/edit-notes/${item.id}`)}
+                onClick={() => EditModal(item.title)}
                 style={{ marginRight: 10 }}
               >
                 Edit

@@ -134,7 +134,7 @@ function MainLayout(props) {
 
   return (
     <Layout className="main-layout">
-      <Header   className="header d-lg-flex d-block justify-content-center">
+      <Header   >
         <div className="logo text-lg-left text-center" style={{ marginLeft: !collapse ? "15%" : 0 }}>
           <img src={logoIcon} height={40} alt="" />
         </div>

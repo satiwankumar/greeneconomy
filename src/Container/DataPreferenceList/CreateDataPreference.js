@@ -1,51 +1,76 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Row, Col, Input, Checkbox, Button } from "antd";
+import { Row, Col, Input, message, Checkbox, Button } from "antd";
 const CreateDataPreference = () => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
-  const [datapoints,SetDataPoints] = useState([])
+  const [datapoints, SetDataPoints] = useState([]);
 
   const [data, setdata] = useState([
     {
+      id: "1",
       title: "Measured Co2 Emission",
     },
     {
+      id: "2",
+
       title: "Emission co2 Emission",
     },
     {
+      id: "3",
+
       title: "Financial Worth of Co2 Emmiteed",
     },
     {
+      id: "4",
+
       title: "Co2 Emission Reduced",
     },
     {
+      id: "5",
+
       title: "Final Worth of Co2 Emitted",
     },
     {
+      id: "6",
+
       title: "Co2 Emission Reduced",
     },
     {
+      id: "7",
+
       title: "Real Icome per Co2 Emitted",
     },
     {
+      id: "8",
+
       title: "Total Organic Weight",
     },
     {
+      id: "9",
+
       title: "Total Recyled  Weight",
     },
     {
+      id: "10",
+
       title: "Daily Organic Raw Material Weight",
     },
     {
+      id: "11",
+
       title: "Estimated Total Primary Energy Supply",
     },
     {
+      id: "12",
+
       title: "Daily Organic Raw Material Weight",
     },
     {
+      id: "13",
+
       title: "Daily Organic Raw Material Weight Financial Value",
     },
   ]);
@@ -53,28 +78,23 @@ const CreateDataPreference = () => {
   const onSubmit = (e) => {
     e.preventDefault("");
 
-    setdata([
-      ...data,
-      {
-        title: title,
-      },
-    ]);
+    message.success(`Data Preference Created Successfully`);
 
     setTitle("");
-  };
+    SetDataPoints([]);
+    navigate("/data-preference");
+  };  
 
-  const handleSelect = (item)=>{
-    if(!datapoints.includes(item.title)){
-      SetDataPoints([...datapoints, item.title])
-
-    }else{
-     let newdata= datapoints.filter((data)=>data.title!=item.title)
-    //  console.log()
-      SetDataPoints(newdata)
-     
+  const handleSelect = (id) => {
+    if (!datapoints.includes(id)) {
+      SetDataPoints([...datapoints, id]);
+    } else {
+      console.log(id);
+      let newdata = datapoints.filter((item) => item != id);
+      //  console.log(newdata)
+      SetDataPoints(newdata);
     }
-
-  }
+  };
 
   return (
     <>
@@ -105,7 +125,14 @@ const CreateDataPreference = () => {
           <div className="data-points-inner site-input dash-input">
             {data?.map((item) => (
               <div className="d-flex align-items-center mr-3 mb-3  ">
-                <span className={`data-tag ${datapoints.includes(item.title)?"blue-tag":""} `} onClick={()=>handleSelect(item)}>{item.title}</span>
+                <span
+                  className={`data-tag ${
+                    datapoints.includes(item.id) ? "blue-tag" : ""
+                  } `}
+                  onClick={() => handleSelect(item.id)}
+                >
+                  {item.title}
+                </span>
                 <i className="fa-solid fa-circle-question"></i>
               </div>
             ))}
