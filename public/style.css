@@ -154,20 +154,35 @@ button.ant-btn.site-btn.w-100.red-btn {
   main.ant-layout-content.site-layout-background {
     padding: 20px 0 !important;
   }
+
+  .main-layout .ant-layout-header {
+    height: auto;
+    padding: 0 20px;
+  }
+  .logo.text-lg-left.text-center {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .main-layout .ant-layout-header {
+    padding-bottom: 15px;
+  }
+  .main-layout .ant-layout-header .ant-input-affix-wrapper {
+    margin-left: 5px;
+  }
 }
 
-@media screen and (max-width: 575px) {
-  .overview-stat-main .line-chart-wrap .inner-wrap {
-    width: 100%;
-    overflow-x: scroll;
+@media screen and (max-width: 767px) {
+  main-layout .ant-layout-header .ant-input-affix-wrapper {
+    margin-left: 10px;
   }
-  .site-layout-background .ant-col.ant-col-8.ant-col-offset-1 {
-    max-width: 100% !important;
-    flex: 1;
+  .main-layout .ant-layout-header .data-panel {
+    padding: 6px 10px;
   }
-  main.ant-layout-content.site-layout-background {
-    padding: 20px 0 !important;
-  }
+
+  .main-layout .ant-layout-header .ant-input-affix-wrapper {
+    margin-left: 5px;
+    width: 37%;
+}
 }
 
 @media screen and (max-width: 480px) {
@@ -175,13 +190,27 @@ button.ant-btn.site-btn.w-100.red-btn {
     width: 100%;
     overflow-y: scroll;
   }
+
+  aside.ant-layout-sider {
+    flex: 0 0 60px;
+    max-width: 60px;
+    min-width: 60px;
+    width: 60px;
+  }
+  .overview-stat-main .line-chart-wrap {
+    width: 85% !important;
+    overflow-x: scroll;
+  }
+  .overview-stat-main .line-chart-wrap .inner-wrap .title-wrap span {
+    font-size: 14px;
+  }
+  .ant-row.ant-row-space-between {
+    display: block;
+  }
 }
-  
 
 @media only screen and (max-width: 999) {
- 
   .overview-stat-main .line-chart-wrap .inner-wrap {
     overflow: scroll;
-}
-  
+  }
 }

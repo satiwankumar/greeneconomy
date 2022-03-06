@@ -127,7 +127,7 @@ function DataSidePanel(props) {
                       </div>
                     </Col>
                   ) : (
-                    ""
+                  ""
                   )}
                   {
                     tracking
@@ -167,8 +167,430 @@ function DataSidePanel(props) {
                               />
                             </div>
                           </Col>
+                        
                         ))
-                      : ""
+                        
+                      : 
+
+
+<>
+                      <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("LINE CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "LINE CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("LINE CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("LINE CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={lineChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+  
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("AREA CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "AREA CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("AREA CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("AREA CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={lineChart1} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("BAR CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "BAR CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("BAR CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("BAR CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={barChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("STACK CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "STACK CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("STACK CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("STACK CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={stackChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("SCATTER CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "SCATTER CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("SCATTER CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("SCATTER CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img
+                          src={scatterChart}
+                          alt=""
+                          width={"90%"}
+                          height={100}
+                        />
+                      </div>
+                    </Col>
+                    </>
+
+}
+
+
+                    
+                  </Row>
+                </div>
+                <div>
+                  <Row className="graphs-icons-wrap" gutter={[16, 24]}>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("PIE CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "PIE CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("PIE CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("PIE CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={pieChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("BAR CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "BAR CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("BAR CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("BAR CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={barChart1} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("GANTT CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "GANTT CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("GANTT CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("GANTT CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={ganttChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("AREA CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "AREA CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("AREA CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("AREA CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={areaChart} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("LINE CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "LINE CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("LINE CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("LINE CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={lineChart2} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("PIE CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "PIE CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("PIE CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("PIE CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={pieChart1} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+                <div>
+                  <Row className="graphs-icons-wrap" gutter={[16, 24]}>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("GANTT CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "GANTT CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("GANTT CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("GANTT CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img
+                          src={ganttChart1}
+                          alt=""
+                          width={"90%"}
+                          height={100}
+                        />
+                      </div>
+                    </Col>
+                    <Col span={8}>
+                      <div
+                        onClick={() => {
+                          if (selectedGraphs?.includes("LINE CHART")) {
+                            setSelectedGraphs(
+                              selectedGraphs?.filter(
+                                (item) => item !== "LINE CHART"
+                              )
+                            );
+                          } else {
+                            setSelectedGraphs(
+                              selectedGraphs?.concat("LINE CHART")
+                            );
+                          }
+                        }}
+                        style={{
+                          width: "95%",
+                          padding: "10px 10px",
+                          background: "#f4f4ff",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          ...(selectedGraphs?.includes("LINE CHART") && {
+                            border: "4px solid #3e4095",
+                          }),
+                        }}
+                      >
+                        <img src={lineChart3} alt="" width={"90%"} height={100} />
+                      </div>
+                    </Col>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     // lineChart
                   }
                 </Row>
@@ -308,400 +730,5 @@ function DataSidePanel(props) {
 export default DataSidePanel;
 
 // // {
-// //   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("LINE CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "LINE CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("LINE CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("LINE CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={lineChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
 
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("AREA CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "AREA CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("AREA CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("AREA CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={lineChart1} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("BAR CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "BAR CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("BAR CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("BAR CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={barChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("STACK CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "STACK CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("STACK CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("STACK CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={stackChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("SCATTER CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "SCATTER CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("SCATTER CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("SCATTER CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img
-// //                         src={scatterChart}
-// //                         alt=""
-// //                         width={"90%"}
-// //                         height={100}
-// //                       />
-// //                     </div>
-// //                   </Col>
-// //                 </Row>
-// //               </div>
-// //               <div>
-// //                 <Row className="graphs-icons-wrap" gutter={[16, 24]}>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("PIE CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "PIE CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("PIE CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("PIE CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={pieChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("BAR CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "BAR CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("BAR CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("BAR CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={barChart1} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("GANTT CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "GANTT CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("GANTT CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("GANTT CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={ganttChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("AREA CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "AREA CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("AREA CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("AREA CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={areaChart} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("LINE CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "LINE CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("LINE CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("LINE CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={lineChart2} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("PIE CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "PIE CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("PIE CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("PIE CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={pieChart1} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
-// //                 </Row>
-// //               </div>
-// //               <div>
-// //                 <Row className="graphs-icons-wrap" gutter={[16, 24]}>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("GANTT CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "GANTT CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("GANTT CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("GANTT CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img
-// //                         src={ganttChart1}
-// //                         alt=""
-// //                         width={"90%"}
-// //                         height={100}
-// //                       />
-// //                     </div>
-// //                   </Col>
-// //                   <Col span={8}>
-// //                     <div
-// //                       onClick={() => {
-// //                         if (selectedGraphs?.includes("LINE CHART")) {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.filter(
-// //                               (item) => item !== "LINE CHART"
-// //                             )
-// //                           );
-// //                         } else {
-// //                           setSelectedGraphs(
-// //                             selectedGraphs?.concat("LINE CHART")
-// //                           );
-// //                         }
-// //                       }}
-// //                       style={{
-// //                         width: "95%",
-// //                         padding: "10px 10px",
-// //                         background: "#f4f4ff",
-// //                         borderRadius: 6,
-// //                         cursor: "pointer",
-// //                         ...(selectedGraphs?.includes("LINE CHART") && {
-// //                           border: "4px solid #3e4095",
-// //                         }),
-// //                       }}
-// //                     >
-// //                       <img src={lineChart3} alt="" width={"90%"} height={100} />
-// //                     </div>
-// //                   </Col>
 // }
