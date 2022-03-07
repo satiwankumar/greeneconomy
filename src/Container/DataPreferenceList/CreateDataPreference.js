@@ -140,7 +140,7 @@ const CreateDataPreference = () => {
         </div>
 
         <Row>
-          <Col span={24}>
+          <Col md={24}>
             <Button htmlType="submit" className="site-btn w-100 purple-btn">
               Submit
             </Button>

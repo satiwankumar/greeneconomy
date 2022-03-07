@@ -60,6 +60,8 @@ function Dashboard(props) {
   const [desc, setDesc] = useState("");
 
   const [selectedGraphs, setSelectedGraphs] = useState([]);
+  const [selected, setSeleted] = useState([]);
+
 
   const [axisDetails, setAxisDetails] = useState({ x: "", y: "" });
 
@@ -214,27 +216,37 @@ function Dashboard(props) {
   };
 
 const character = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-"o",
-"p",
-"q","r","s","t","u","v","w","x","y","z"
+  "1a",
+  "1b",
+  "2a",
+  "2b",
+  "3a",
+  "3b",
+  "4a",
+  "4b",
+  "5a",
+  "5b",
 ]
 
 const CombineGraph=()=>{
   setCombineGraph(true)
 }
 
+const Addbadge=(index)=>{
+  if(selected.includes(index)){
+    // alert(true)
+    const index = selected.indexOf(5);
+    
+    console.log(selected.splice(index,1))
+
+    }
+    else{
+      setSeleted([...selected,index])
+
+    }
+
+
+}
 
   return (
     <div className="dashboard-main">
@@ -255,18 +267,18 @@ const CombineGraph=()=>{
           <h1 className="title-label">Create a New Dashboard</h1>
           <Divider />
           <Row className="row-wrap" gutter={12} align="middle">
-            <Col span={6}>
+            <Col md={6} >
               <label>Name Your Dashboard</label>
             </Col>
-            <Col span={18}>
+            <Col md={18}>
               <Input value={name} onChange={(e) => setName(e.target.value)} />
             </Col>
           </Row>
           <Row className="row-wrap" gutter={12}>
-            <Col span={6}>
+            <Col md={6}>
               <label>Describe Dashboard</label>
             </Col>
-            <Col span={18}>
+            <Col md={18}>
               <TextArea
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
@@ -276,10 +288,10 @@ const CombineGraph=()=>{
           </Row>
           <Divider />
           <Row align="middle" className="row-wrap" gutter={12}>
-            <Col span={6}>
+            <Col md={6}>
               <label>Select Data Type</label>
             </Col>
-            <Col gutter={16} span={18}>
+            <Col gutter={16} md={18}>
               <Row
                 align="middle"
                 className="checkboxes-wrap"
@@ -323,15 +335,15 @@ const CombineGraph=()=>{
           <Divider />
           {Object.values(dataType)?.some((item) => item) && (
             <Row className="row-wrap" gutter={12}>
-              <Col span={4}>
+              <Col md={4}>
                 <label>Combine Data Set</label>
               </Col>
-              <Col span={8}>
+              <Col md={8}>
                 <Row gutter={12}>
-                  <Col span={5}>
+                  <Col md={5}>
                     <div className="axis-label-btn">X-Axis</div>
                   </Col>
-                  <Col span={16}>
+                  <Col md={16}>
                     <Select
                       value={axisDetails?.x}
                       onChange={(value) =>
@@ -354,12 +366,12 @@ const CombineGraph=()=>{
                   </Col>
                 </Row>
               </Col>
-              <Col span={8}>
+              <Col md={8}>
                 <Row gutter={12}>
-                  <Col span={5}>
+                  <Col md={5}>
                     <div className="axis-label-btn">Y-Axis</div>
                   </Col>
-                  <Col span={16}>
+                  <Col md={16}>
                     <Select
                       value={axisDetails?.y}
                       onChange={(value) =>
@@ -382,7 +394,7 @@ const CombineGraph=()=>{
                   </Col>
                 </Row>
               </Col>
-              <Col span={2}>
+              <Col md={2}>
                 <Row gutter={12}>
                   <div className="add-btn" onClick={() => onAddGraph()}>
                     +
@@ -393,7 +405,7 @@ const CombineGraph=()=>{
             </Row>
           )}
           <Row className="row-wrap" gutter={12}>
-            <Col span={16}>
+            <Col md={16}>
               {selectedGraphs?.map((graph, index) => {
                 return (
                   <Row>
@@ -414,7 +426,7 @@ const CombineGraph=()=>{
               <Row className="graphs-icons-wrap" gutter={[12, 24]}>
                 {selectedGraphs?.map((graph, index) => {
                   return graph?.chart ? (
-                    <Col span={5}>
+                    <Col md={5}>
                       <div
                         style={{
                           width: "90%",
@@ -426,9 +438,11 @@ const CombineGraph=()=>{
                           justifyContent: "center",
                           position: 'relative'
                         }}
+                        onClick={()=>Addbadge(index) }
                       >
-                        <span className="badgeGraph">{`${index+1}${character[index]}`}</span>
+                        <span className="badgeGraph">{selected.includes(index)?` ${character[index]}`:""}</span>
                         <img
+
                           src={getSrcOfImg(graph?.chart)}
                           alt=""
                           width={"90%"}
@@ -491,7 +505,7 @@ const CombineGraph=()=>{
                 >
                   <div>
                     <Row className="graphs-icons-wrap" gutter={[16, 24]}>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -509,7 +523,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -527,7 +541,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -545,7 +559,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -563,7 +577,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -581,7 +595,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -603,7 +617,7 @@ const CombineGraph=()=>{
                   </div>
                   <div>
                     <Row className="graphs-icons-wrap" gutter={[16, 24]}>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -621,7 +635,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -639,7 +653,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -657,7 +671,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -675,7 +689,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -693,7 +707,7 @@ const CombineGraph=()=>{
                           />
                         </div>
                       </Col>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",
@@ -715,7 +729,7 @@ const CombineGraph=()=>{
                   </div>
                   <div>
                     <Row className="graphs-icons-wrap" gutter={[16, 24]}>
-                      <Col span={12}>
+                      <Col md={12}>
                         <div
                           style={{
                             width: "95%",

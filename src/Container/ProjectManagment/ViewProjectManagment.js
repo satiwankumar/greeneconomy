@@ -155,7 +155,7 @@ export const ViewProjectManagment = (props) => {
       </div>
 
       <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
-        <Col span={8}>
+        <Col md={8}>
           <PieChart width={280} height={300}>
             <Pie
               isAnimationActive={true}
@@ -183,14 +183,14 @@ export const ViewProjectManagment = (props) => {
             <Legend />
           </PieChart>
         </Col>
-        <Col span={16}>
+        <Col md={16}>
           {metaData?.map((item) => (
             <Row>
-              <Col span={12}>
+              <Col md={12}>
                 <h2>{item?.title}</h2>
                 <p>{item?.text}</p>
               </Col>
-              <Col span={12}>
+              <Col md={12}>
                 <h2>{item?.title}</h2>
                 <p>{item?.text}</p>
               </Col>

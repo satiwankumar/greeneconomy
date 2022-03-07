@@ -35,6 +35,10 @@ function MainLayout(props) {
 
   const navigate = useNavigate();
   const [collapse, setCollapsed] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+
+  
   const dashboards = useSelector((state) => state.Dashboard.dashboards);
   const location = useLocation();
   const [defaultSelected, setDefaultSelected] = useState(["Overview Stats"]);
@@ -135,14 +139,19 @@ function MainLayout(props) {
   return (
     <Layout className="main-layout">
       <Header   >
+      
+      <button type="button" onClick={()=>setOpen(!open)}  className="showSidebar"><i class="fa-solid fa-bars"></i></button>
         <div className="logo text-lg-left text-center" style={{ marginLeft: !collapse ? "15%" : 0 }}>
           <img src={logoIcon} height={40} alt="" />
         </div>
+        
+        
+        <div className={`header-right noti mob-down ${open2?"opened":""}`}>
         <Input prefix={<SearchOutlined />} />
-        <div className="data-panel" onClick={() => handleDataPanel()}>
+
+        <div className="data-panel mr-3" onClick={() => handleDataPanel()}>
           Open Data Panel
         </div>
-        <div className="header-right noti">
           <Dropdown  overlayClassName="notification" overlay={filterMenu1} trigger={["click"]}>
             <a
               className="ant-dropdown-link drop-link "
@@ -173,15 +182,16 @@ function MainLayout(props) {
             </a>
           </Dropdown>
         </div>
+        <button type="button" onClick={()=>setOpen2(!open2)}  className="showSecondBar"><i class="fa-solid fa-ellipsis-vertical"></i></button>
       </Header>
       <Layout>
         <Sider
           onCollapse={(collapsed) => setCollapsed(collapsed)}
           collapsible
           breakpoint="lg"
-         
+          
           width={200}
-          className="site-layout-background"
+          className={`site-layout-background ${open?"opened":""}`} 
         >
           <div className="logo">
             <img src={lagosIcon} width={200} height={170} alt="" />

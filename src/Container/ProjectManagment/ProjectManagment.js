@@ -135,15 +135,15 @@ export const ProjectManagement = (props) => {
 
 
       <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
-        <Col span={14}>
+        <Col md={14}>
 
           <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
-            <Col span={14}>
+            <Col md={14}>
               <Input className='site-input' placeholder="Project Name" />
 
 
             </Col>
-            <Col span={10}>
+            <Col md={10}>
               <Select className='site-input'
                 labelInValue
                 defaultValue={{ value: 'Industry' }}
@@ -156,9 +156,9 @@ export const ProjectManagement = (props) => {
 
           </Row>
         </Col>
-        <Col span={10}>
+        <Col md={10}>
           <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
-            <Col span={12}>
+            <Col md={12}>
               <Select className='site-input'
                 labelInValue
                 defaultValue={{ value: 'LGA' }}
@@ -169,7 +169,7 @@ export const ProjectManagement = (props) => {
               </Select>
 
             </Col>
-            <Col span={12}>
+            <Col md={12}>
               <Button className='w-100'>Create</Button>
 
 
@@ -179,7 +179,7 @@ export const ProjectManagement = (props) => {
 
 
         </Col>
-        <Col span={24}>
+        <Col md={24}>
 
           <TextArea
             // value={value}
